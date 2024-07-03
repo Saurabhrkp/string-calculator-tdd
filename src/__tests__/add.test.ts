@@ -44,4 +44,14 @@ describe('add should', () => {
 		expect(add('//[***]\n1***2**3')).toBe(6)
 		expect(add('//[---]\n10--20---30')).toBe(60)
 	})
+
+	it('handle multiple delimiters', () => {
+		expect(add('//[*][%]\n1*2%3')).toBe(6)
+		expect(add('//[&][#]\n5&10#15')).toBe(30)
+	})
+
+	it('handle multiple delimiters with any length', () => {
+		expect(add('//[*][%%]\n1*2%3')).toBe(6)
+		expect(add('//[&&][#]\n5&10#15')).toBe(30)
+	})
 })

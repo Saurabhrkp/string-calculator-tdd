@@ -24,4 +24,9 @@ describe('add should', () => {
 		expect(add('1\n2,3')).toBe(6)
 		expect(add('10\n20\n30')).toBe(60)
 	})
+
+	it('support custom delimiters', () => {
+		expect(add('//;\n1;2')).toBe(3)
+		expect(add('//|\n1|2|3')).toBe(6)
+	})
 })

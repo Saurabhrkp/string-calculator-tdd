@@ -39,4 +39,9 @@ describe('add should', () => {
 		expect(add('2,1001')).toBe(2)
 		expect(add('500,1000,2500')).toBe(1500)
 	})
+
+	it('handle custom delimiters of any length', () => {
+		expect(add('//[***]\n1***2**3')).toBe(6)
+		expect(add('//[---]\n10--20---30')).toBe(60)
+	})
 })

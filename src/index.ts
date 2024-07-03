@@ -1,4 +1,9 @@
 export const add = (input: string): number => {
-	if (input === '') return 0
-	return Number(input)
+	let sum = 0
+
+	for (const number of input.split(',')) {
+		sum = sum + Number(number)
+	}
+
+	return sum
 }

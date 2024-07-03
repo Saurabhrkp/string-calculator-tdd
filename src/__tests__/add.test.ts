@@ -5,7 +5,11 @@ describe('add should', () => {
 		expect(add('')).toEqual(0)
 	})
 
-	test(`return 1 if input is '1'`, () => {
+	test(`return number if input is just one number`, () => {
 		expect(add('1')).toEqual(1)
+	})
+
+	test(`return sum of two numbers`, () => {
+		expect(add('1,5')).toEqual(6)
 	})
 })

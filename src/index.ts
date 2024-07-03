@@ -3,7 +3,6 @@ export const add = (numbers: string): number => {
 
 	const delimiterMatch = numbers.match(/^\/\/(.+)\n/)
 	const delimiter = delimiterMatch ? delimiterMatch[1] : ','
-	console.log(delimiter)
 
 	const sanitizedNumbers = delimiterMatch
 		? numbers.slice(delimiterMatch[0].length)
@@ -12,6 +11,11 @@ export const add = (numbers: string): number => {
 	const numArray = sanitizedNumbers
 		.split(new RegExp(`[${delimiter}\\n]+`))
 		.map(Number)
+
+	const negatives = numArray.filter((num) => num < 0)
+	if (negatives.length > 0) {
+		throw new Error(`Negative numbers not allowed: ${negatives.join(', ')}`)
+	}
 
 	let sum = 0
 

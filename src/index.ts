@@ -20,7 +20,7 @@ export const add = (numbers: string): number => {
 	let sum = 0
 
 	for (const number of numArray) {
-		sum = sum + Number(number)
+		if (Number(number) <= 1000) sum = sum + Number(number)
 	}
 
 	return sum

@@ -34,4 +34,9 @@ describe('add should', () => {
 		expect(() => add('1,-2,3')).toThrow('Negative numbers not allowed: -2')
 		expect(() => add('1,-2,-3')).toThrow('Negative numbers not allowed: -2, -3')
 	})
+
+	it('ignore numbers greater than 1000', () => {
+		expect(add('2,1001')).toBe(2)
+		expect(add('500,1000,2500')).toBe(1500)
+	})
 })
